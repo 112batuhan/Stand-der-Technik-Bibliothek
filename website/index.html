@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SdT Navigator</title>
+  <meta name="description" content="Inoffizieller Navigator für die Stand-der-Technik-Bibliothek: Anforderungen von Grundschutz++ durchsuchen, filtern und mit ISO 27001 und IT-Grundschutz 2023 vergleichen.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f5e6e'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    try { var t = localStorage.getItem('sdt-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/" aria-label="Startseite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M9 17l5 5 9-12" stroke="var(--brand-ink)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-text"><strong>SdT</strong> Navigator</span>
+      </a>
+      <div class="global-search" role="search">
+        <svg class="icon search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="gsearch" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Suchen: Begriff, ID (z. B. BER.6.1), ISO 8.5, OPS.1.1.3 …"
+               aria-label="Anforderungen durchsuchen" aria-controls="gsuggest" aria-expanded="false">
+        <kbd class="kbd-hint" aria-hidden="true">/</kbd>
+        <div id="gsuggest" class="suggest" role="listbox" hidden></div>
+      </div>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menü" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="mainnav" id="mainnav" aria-label="Hauptnavigation">
+        <a href="#/anforderungen" data-nav="anforderungen">Anforderungen</a>
+        <a href="#/kollektionen" data-nav="kollektionen">Kollektionen</a>
+        <a href="#/mappings" data-nav="mappings">Mappings</a>
+        <a href="#/umsetzungen" data-nav="umsetzungen">Umsetzungen</a>
+        <a href="#/glossar" data-nav="glossar">Glossar</a>
+        <a href="#/merkliste" data-nav="merkliste" class="nav-bookmarks">Merkliste <span class="count-pill" id="bmCount" hidden>0</span></a>
+        <button class="icon-btn theme-btn" id="themeBtn" aria-label="Farbschema wechseln" title="Hell/Dunkel">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="loading">Daten werden geladen …</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Inoffizielle Ansicht der <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" rel="noopener">Stand-der-Technik-Bibliothek</a>.
+        Inhalte: Bundesamt für Sicherheit in der Informationstechnik, lizenziert unter
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" rel="noopener">CC BY-SA 4.0</a>.
+        Maßgeblich sind die OSCAL-Dateien im Repository.</p>
+      <p id="buildInfo"></p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
